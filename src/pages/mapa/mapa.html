@@ -1,0 +1,20 @@
+<ion-header no-border>
+  <ion-navbar color= "primary">
+    <ion-title>
+      Mapa
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="detalleApp()">
+        <ion-icon name= "alert"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <agm-map [latitude]= "ubi.lat" [longitude]= "ubi.lng" [zoom]="15">
+    <agm-marker [latitude]="ubi.lat" [longitude]= "ubi.lng"></agm-marker>
+  </agm-map>
+
+</ion-content>
