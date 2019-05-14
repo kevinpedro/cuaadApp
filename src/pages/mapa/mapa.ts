@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { UbicacionProvider } from '../../providers/ubicacion/ubicacion';
+import { UbicacionServiceProvider } from '../../providers/ubicacion-service/ubicacion-service'; 
+
 @Component({
   selector: 'page-mapa',
   templateUrl: 'mapa.html'
@@ -14,7 +16,8 @@ export class MapaPage {
 
   constructor(public navCtrl: NavController,
               private alertCtrl: AlertController,
-              public _ubicacionProv: UbicacionProvider) {
+              public _ubicacionProv: UbicacionProvider,
+			  public ubicacionService: UbicacionServiceProvider) {
 
                 this._ubicacionProv.iniciarGeoLocalizacion();
 
@@ -22,7 +25,6 @@ export class MapaPage {
                                    .subscribe( data =>{
                                      this.ubi = data;
                                    } )
-
 
   }
 
@@ -39,5 +41,8 @@ export class MapaPage {
    alert.present();
 
   }
+  ionViewDidLoad(){
+        this.ubicacionService.getRemoteData();
+    }	
 
 }

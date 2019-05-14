@@ -20,6 +20,8 @@ import { AgmCoreModule } from '@agm/core';
 
 import { Geolocation } from '@ionic-native/geolocation';
 
+import { HttpClientModule } from '@angular/common/http';
+import { UbicacionServiceProvider } from '../providers/ubicacion-service/ubicacion-service'; 
 @NgModule({
   declarations: [
     MyApp,
@@ -35,7 +37,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     AngularFirestoreModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6uuLYlh1lS4bEHWT-ChT4OQ8j_IJiRdU'
-    })
+    }),
+	HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,7 +53,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation,
-    UbicacionProvider
+    UbicacionProvider,
+    UbicacionServiceProvider
   ]
 })
 export class AppModule {}
